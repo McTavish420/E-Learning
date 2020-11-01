@@ -1,0 +1,27 @@
+<h1>All Users Page</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Signed Up At:</th>
+      <th>Sign in Count:</th>
+      <th>Currently Signed In At:</th>
+      <th>Last Signed in AT:</th>
+      <th>Current Sign In IP:</th>
+      <th>Last Sign In IP:</th>
+      <th>Confirmed Email?</th>
+      <th>Roles:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      
+        <%= render 'users/user', user: user %>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Back', root_path %></td>

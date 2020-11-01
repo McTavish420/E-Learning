@@ -1,0 +1,38 @@
+<tr>
+<td>
+  <%= user.email %>
+</td>
+<td>
+  <%= user.password %>
+</td>
+<td>
+  <%= user.created_at %>
+</td>
+<td>
+  <%= user.sign_in_count %>
+</td>
+<td>
+  <%= user.current_sign_in_at %>
+</td>
+<td>
+  <%= user.last_sign_in_at %>
+</td>
+<td>
+  <%= user.current_sign_in_ip %>
+</td>
+<td>
+  <%= user.last_sign_in_ip %>
+</td>
+<td>
+  <% if user.confirmed_at.present? %>
+    <p><b>Yes</b></p>
+<% else %>
+    <p><b>No</b></p>
+<% end %>
+</td>
+<td>
+  <% user.roles.each do |role| %>
+    <%= role.name %>
+  <% end %>
+</td>
+</tr>
