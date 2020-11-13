@@ -1,0 +1,9 @@
+<%= @user.email %>
+
+<%= form_with(model: @user, local: true)  do |f| %>
+    <%= f.collection_check_boxes :role_ids, Role.all, :id, :name %>
+    </hr>
+    <%= f.button :submit %>
+<% end %>
+
+<%= link_to 'Cancel', users_path %>

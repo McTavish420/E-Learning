@@ -14,7 +14,11 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = Course.new
+    if current_user.has_role?(:admin)
+      @course = Course.new
+    else
+      redirect_to root_path, alert: "You Do not have access if you are to admin"
+    end
   end
 
   # GET /courses/1/edit

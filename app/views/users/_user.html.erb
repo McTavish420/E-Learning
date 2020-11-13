@@ -34,5 +34,6 @@
   <% user.roles.each do |role| %>
     <%= role.name %>
   <% end %>
+  <%= link_to 'Edit', edit_user_path(user) %>
 </td>
 </tr>
