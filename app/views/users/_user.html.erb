@@ -34,6 +34,6 @@
   <% user.roles.each do |role| %>
     <%= role.name %>
   <% end %>
-  <%= link_to 'Edit', edit_user_path(user) %>
+  <%= link_to 'Edit', edit_user_path(user) if policy(user).edit? %>
 </td>
 </tr>

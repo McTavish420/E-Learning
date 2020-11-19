@@ -14,21 +14,20 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    if current_user.has_role?(:admin)
       @course = Course.new
-    else
-      redirect_to root_path, alert: "You Do not have access if you are to admin"
-    end
+      authorize @course
   end
 
   # GET /courses/1/edit
   def edit
+      authorize @course
   end
 
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    authorize @course
     @course.user = current_user
 
     respond_to do |format|
@@ -45,6 +44,7 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
+    authorize @course
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
@@ -59,6 +59,7 @@ class CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
+    authorize @course
     @course.destroy
     respond_to do |format|
       format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }

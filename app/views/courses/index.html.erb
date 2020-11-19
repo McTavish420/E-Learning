@@ -17,8 +17,8 @@
         <td><%= course.description %></td>
         <td><%= course.user %></td>
         <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_course_path(course) if policy(course).edit? %></td>
+        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } if policy(course).destroy? %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 <br>
 
 <td><%= link_to 'Back', root_path %></td>
-<%= link_to 'New Course', new_course_path %>
+<%= link_to 'New Course', new_course_path if policy(@courses).new? %>
