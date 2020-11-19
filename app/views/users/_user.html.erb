@@ -1,5 +1,12 @@
 <tr>
 <td>
+  <% if user.online? %>
+    <p><b>Yes</b></p>
+<% else %>
+    <p><b>No</b></p>
+<% end %>
+</td>
+<td>
   <%= user.email %>
 </td>
 <td>
