@@ -14,6 +14,21 @@
 </p>
 
 <p>
+  <strong>Total Lessons:</strong>
+  <%= @course.lessons.count %>
+</p>
+
+<div>
+<%= link_to 'Add New Lesson', new_lesson_path %>
+  <p>
+    <strong>Lessons:</strong>
+    <% @lessons.each do |lesson| %>
+        <p><%= link_to lesson.title, lesson %></p>
+    <% end %>
+  </p>
+</div>
+
+<p>
   <strong>Language:</strong>
   <%= @course.language %>
 </p>

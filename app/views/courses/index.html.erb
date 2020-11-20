@@ -6,6 +6,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>User</th>
+      <th>Lessons</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
         <td><%= course.title %></td>
         <td><%= course.description %></td>
         <td><%= course.user %></td>
+        <td><%= course.lessons.count %></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) if policy(course).edit? %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } if policy(course).destroy? %></td>

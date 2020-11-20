@@ -24,14 +24,6 @@ class UsersController < ApplicationController
 
   private
 
-  # def is_admin
-  #   if current_user.has_role?(:admin)
-  #     return true
-  #   else
-  #     redirect_to root_path, alert: "You do not have access unless you are admin"
-  #   end
-  # end
-
   def set_user
     @user = User.find(params[:id])
   end
